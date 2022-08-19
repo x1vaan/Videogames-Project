@@ -1,0 +1,17 @@
+
+.body{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 400px;
+}
+
+.p1{
+   position: absolute;
+   top: 0px;
+}
+
+.p2{
+  position: absolute;
+  bottom: 0px;
+}
