@@ -1,47 +1,55 @@
-import React from "react";
+import React,{useEffect} from "react";
 import cssNav from '../Navbar/Navbar.module.css'
-import axios from 'axios'
-import { useState, useEffect } from "react";
+import {useDispatch, useSelector } from 'react-redux'
+import { getgenres, ordervideogames } from "../../Redux/Actions";
+import Searchbar from "../Searchbar/Searchbar";
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBar (){
-    const[genres, setGenres] = useState([]);
+const navigate = useNavigate();
+const dispatch = useDispatch();
+const genres = useSelector(state => state.genres);
     useEffect( () => {
-        async function query () {
-            const generos = await axios.get('http://localhost:3001/genres');
-            setGenres(generos.data.creados)
-        } 
-        query()
+         dispatch(getgenres())
     },[])
+    const onclick = () => {
+        navigate('/')
+    }
+    const onchange = (e) => {
+       dispatch(ordervideogames(e.target.value))
+    }
+    const onchangeGenre = () => {
+    }
     return (
        <div>
         <div className={cssNav.navcontainer}>
-          <h2 className={cssNav.titulo}>Videogames App</h2>
-            <form action="filtergenre" className={cssNav.filtergenre}>
-                <select name="genre" id="genre">
-                <option value="genres" selected disabled hidden>Genre: </option>
+          <h2 className={cssNav.titulo} onClick={onclick} >Videogames App</h2>
+            <div>
+                <select name="genre" id="genre" onChange={onchange} className={cssNav.filtergenre}>
+                <option value="genres" selected disabled hidden>Genre : </option>
                  {
-                      genres.map(genre => {
+                      genres?.map(genre => {
                       return <option value={genre.name} key={genre.id}>{genre.name}</option>
                       })
                  }
                 </select>
-            </form>
-            <form action="orderbyname" className={cssNav.orderbyname}>
-                 <select name="ordername" id="ordername">
-                    <option value="orderbyname" selected disabled hidden>Order by name: </option>
+            </div>
+            <div>
+                 <select name="ordername" id="ordername" className={cssNav.orderbyname} onChange={onchange}>
+                    <option value="orderbyname" selected disabled hidden>Order by name : </option>
                     <option value="A-Z">A-Z</option>  
                     <option value="Z-A">Z-A</option>
                  </select>
-            </form>
-            <form action="orderbyrating" className={cssNav.orderbyrating}>
-                <select name="orderrating" id="orderrating">
-                    <option value="orderbyrating" selected disabled hidden>Order by rating: </option>
-                    <option value="bestrated">Best</option>
-                    <option value="worstrated">Worst</option>
+            </div>
+            <div>
+                <select name="orderrating" id="orderrating" className={cssNav.orderbyrating} onChange={onchange}>
+                    <option value="orderbyrating" selected disabled hidden>Order by rating : </option>
+                    <option value="Best">Best</option>
+                    <option value="Worst">Worst</option>
                 </select>
-            </form>
+            </div>    
        </div>
-            <input type="search" placeholder="    Search game..." id="search" className={cssNav.searchbar}/>
+        <Searchbar/>
         </div>
     )
 }

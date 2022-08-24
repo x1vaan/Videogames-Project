@@ -1,7 +1,7 @@
 .titulo{
     position: relative;
     font-family: 'Bangers', cursive;
-    font-size: 50px;
+    font-size: 70px;
     color: #FFD960;
     left: 80px;
 }
@@ -9,34 +9,41 @@
 .navcontainer {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 150px;
+    margin-top: -20px;
 }
 
 .filtergenre {
-    position: relative;
+    position: absolute;
     top: 50px;
-    left: 150px;
+    left: 550px;
+    font-family: 'Bangers', cursive;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 17px;
+    border: none;
 }
 
 .orderbyname {
-  position: relative;
+  position: absolute;
   top: 50px;
-  left: 200px;
+  left: 750px;
+  font-family: 'Bangers', cursive;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 17px;
+  width: 150px;
+  border: none;
 }
 
 .orderbyrating {
-    position: relative;
+    position: absolute;
     top: 50px;
-    left: 250px;
+    left: 950px;
+    font-family: 'Bangers', cursive;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 17px;
+    width: 150px;
+    border: none;
 }
-
-.searchbar{
-   display: flexbox;
-   position: relative;
-   top: -85px;
-   left: 750px;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   border-radius: 20px;
-   border: solid 0px;
-}
-

@@ -17,12 +17,21 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const { load } = require('dotenv');
 const app = require('./src/app.js');
 const { conn } = require('./src/db.js');
-
+const { loadingvideogames, loadinggenres, loadingdescription, genresforeachgame} = require('./src/loadingpage.js')
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: true }).then(async () =>{
+  await loadingvideogames();
+  await loadinggenres();
+}).then(()=> {
+  loadingdescription();
+}).then(() =>{
+  genresforeachgame();
+}).then(() => {
   app.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
-});
+})
+.catch(err => console.log(err))

@@ -1,14 +1,20 @@
 import React from "react";
 import cssHome from './Home.module.css'
-import { Link } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { resetsearch } from "../Redux/Actions";
 
 export default function Home(){
+const navigate = useNavigate();
+const dispatch = useDispatch();
+const onclick = () => {
+  dispatch(resetsearch())
+    navigate('/videogames')
+}
     return (
         <div>
             <h1 className={cssHome.hometittle}>Videogame App</h1>
-            <Link to='/videogames'>
-            <button className={cssHome.button}>Start</button>
-            </Link>
+            <button className={cssHome.button} onClick={onclick}>Start</button>
         </div>
     )
 }

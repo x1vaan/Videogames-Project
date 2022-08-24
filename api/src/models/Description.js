@@ -1,14 +1,13 @@
 const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
-    sequelize.define('Genre', {
-     name: {
-        type: DataTypes.STRING,
+    sequelize.define('Description', {
+     description: {
+        type: DataTypes.TEXT,
         allowNull : false
      },
      idapi : {
-      type: DataTypes.INTEGER,
-      primaryKey: true
+      type : DataTypes.STRING,
      }
   });
 }

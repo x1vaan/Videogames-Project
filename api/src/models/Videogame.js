@@ -4,19 +4,14 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Videogame', {
-    id: {
-     type: DataTypes.INTEGER,
-     autoIncrement: true,
-     allowNull: false,
-     primaryKey: true,
+    idapi : {
+     type : DataTypes.TEXT,
+     allowNull : false,
+     defaultValue : 'no tiene idapi'
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    description: {
-      type : DataTypes.TEXT,
-      allowNull : false
     },
     release_date: {
      type : DataTypes.DATEONLY
@@ -25,8 +20,11 @@ module.exports = (sequelize) => {
       type : DataTypes.FLOAT
     },
     platforms: {
-      type : DataTypes.TEXT,
+      type : DataTypes.STRING,
       allowNull : false
+    },
+    background_image : {
+      type : DataTypes.STRING
     }
   }, {timestamps : false});
 };

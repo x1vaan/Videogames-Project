@@ -7,11 +7,17 @@
 }
 
 .p1{
+  font-family: 'Bangers', cursive;
    position: absolute;
    top: 0px;
+   width: 200px;
 }
 
 .p2{
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  font-family: 'Bangers', cursive;
   position: absolute;
   bottom: 0px;
 }
