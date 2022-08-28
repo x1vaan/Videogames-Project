@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./Images/Arcadewallpaper.jpg');
+  background-image: url('./Images/Arcade.jpg');
+  background-size: cover;
 }
 
 code {

@@ -1,23 +1,30 @@
-
-.body{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    height: 400px;
+ .stylecontainer{
+  display: flex;
+ justify-content: center;
+ }
+.body {
+  background-color: #17181c;
+  width: 280px;
+  height: 380px;
+  margin: 0px 2px 80px 40px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+} .body:hover{
+  transform: translateY(-20px) ;
+  box-shadow: 0 0 30px 5px rgba(152, 218, 217, .25);
 }
-
 .p1{
-  font-family: 'Bangers', cursive;
-   position: absolute;
-   top: 0px;
+  font-family: 'Didact Gothic', sans-serif;
+   position: relative;
+   left: 40px;
    width: 200px;
+   text-decoration: none;
+   color: #98dad9;
 }
 
 .p2{
-  display: flex;
-  justify-content: center;
-  width: 200px;
-  font-family: 'Bangers', cursive;
-  position: absolute;
-  bottom: 0px;
+  font-family: 'Didact Gothic', sans-serif;
+  position: relative;
+  text-decoration: none;
+  color: #98dad9;
 }

@@ -15,3 +15,37 @@
     border-radius: 20px;
     border: solid 0px;
  }
+
+ .creategame{
+    padding: 30px 50px;
+    position: absolute;
+    top: 155px;
+    right: 240px;
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
+    background-color: #98dad9;
+    border: 1px solid #D7415D;
+    cursor: pointer;
+ }
+
+ .creategame:hover{
+    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25);
+    color: #FA4753 ;
+ }
+
+ .pagination{
+   position: relative;
+   bottom: 20px;
+ }
+
+ .buttonreset {
+  position: absolute;
+  top: 150px;
+  left: 250px;
+  padding: 10px 50px;
+  font-family: 'Staatliches', cursive;
+  font-size: 30px;
+  background-color: #98dad9;
+  border: 1px solid #D7415D;
+  cursor: pointer;
+ }

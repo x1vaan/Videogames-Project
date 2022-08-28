@@ -85,21 +85,9 @@ router.get('/games/:order', async (req, res) => {
 
 router.get('/game/:genre', async (req, res) =>{
   const {genre} = req.params
- //tabla de generos para saber cual es el idapi de ese genero
- // consultando a la tabla intermediaria para saber los juegos que tienen ese genero con su idapi
-  const videogamesFiltered = [];
-  axios.get(`http://localhost:3001/videogames`)
-  .then(async videogames => {
-    videogames.data.forEach(game => {
-      game.Genres.forEach(genero => {
-        console.log(genero.name)
-        if(genero.name === genre){
-          videogamesFiltered.push(game) 
-        } 
-      }) 
-    })
-  })
-  res.status(200).send(videogamesFiltered)
+ const juegardos = await Videogame.findAll({include: {model : Genre, where : {name : genre}}})
+ if(juegardos.length === 0) return res.status(200).send([])
+  res.status(200).send(juegardos)
 })
 
 module.exports = router;

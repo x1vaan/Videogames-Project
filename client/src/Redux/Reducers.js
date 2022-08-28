@@ -1,11 +1,13 @@
-import {GET_VIDEOGAMES, GET_VIDEOGAMEDETAIL, GET_GENRES, CREATE_VIDEOGAME, DELETE_VIDEOGAME, SEARCH_GAME, RESET_SEARCH, GAMES_ORDERED, SET_PAGE} from './Actions'
+import {GET_VIDEOGAMES, GET_VIDEOGAMEDETAIL, GET_GENRES, CREATE_VIDEOGAME, DELETE_VIDEOGAME, SEARCH_GAME, RESET_SEARCH, GAMES_ORDERED, SET_PAGE, GAMES_FILTERED, RESET_FILTERS, RESET_PAGINA} from './Actions'
 
 const initialState = {
   videogames: [],
-  genres: [],
   videogamedetail : {},
   searchjuego : [],
+  genres: [],
   pagina : 1,
+  filterstate : 'Not filtered',
+  orderstate : 'Not ordered'
 }
 
 export default function Reducer (state = initialState,action) {
@@ -35,16 +37,34 @@ export default function Reducer (state = initialState,action) {
         ...state,
         searchjuego : []
       }
+      case RESET_FILTERS:
+        return {
+          ...state, orderstate: 'Not ordered', filterstate: 'Not filtered'
+        }
       case GAMES_ORDERED:
         return {
           ...state,
-          videogames : action.payload
+          videogames : action.payload, orderstate : 'Ordered'
         }
+        case GAMES_FILTERED :
+          if(action.payload.length === 0) {
+            return {
+              ...state, filterstate : 'Not found', videogames : []
+            }
+          }
+          return {
+            ...state,
+            videogames : action.payload, filterstate : 'Found'
+          }
         case SET_PAGE:
           return {
             ...state,
             pagina : action.payload
           }
+          case RESET_PAGINA:
+            return {
+              ...state, pagina : 1
+            }
     default :
     return state
   }

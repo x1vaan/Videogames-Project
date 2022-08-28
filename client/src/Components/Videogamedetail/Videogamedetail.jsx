@@ -21,12 +21,30 @@ useEffect(() => {
              />
          </div>
          <div className={css.details}>
-          <p>{videogamedetail?.videogame?.name}</p>
-          <p>{videogamedetail.description}</p>
-          <p>{videogamedetail.videogame?.release_date}</p>
-          <p>{videogamedetail.videogame?.rating}</p>
-          <p>{videogamedetail.videogame?.platforms}</p>
-          <p>{videogamedetail.videogame?.Genres.map(genre => genre.name + ' ')}</p>
+            <div className={css.name}>
+            <p>Name : </p>
+            <p className={css.pname}>{videogamedetail?.videogame?.name}</p>
+            </div>
+        <div className={css.releasedate}>
+            <p>Release Date : </p>
+        <p className={css.p}>{videogamedetail.videogame?.release_date}</p>
+        </div>
+          <div className={css.rating}>
+            <p>Rating : </p>
+          <p className={css.p}>{videogamedetail.videogame?.rating}</p>
+          </div>
+         <div className={css.platforms}>
+            <p>Platforms: </p>
+         <p className={css.p}>{videogamedetail.videogame?.platforms.split(',')}</p>
+         </div>
+         <div className={css.genres}>
+            <p>Genres: </p>
+         <p className={css.p}>{videogamedetail.videogame?.Genres.map(genre => genre.name + ' ')}</p>
+         </div>
+         <div className={css.description}>
+                <p>Description: </p>
+            <p className={css.p}>{videogamedetail.description}</p>
+            </div>
          </div>
         </div>
     )

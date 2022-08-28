@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import cssNav from '../Navbar/Navbar.module.css'
 import {useDispatch, useSelector } from 'react-redux'
-import { getgenres, ordervideogames } from "../../Redux/Actions";
+import { getgenres, ordervideogames, filtergames, resetfilters, resetpagina } from "../../Redux/Actions";
 import Searchbar from "../Searchbar/Searchbar";
 import { useNavigate } from 'react-router-dom'
 
@@ -16,20 +16,23 @@ const genres = useSelector(state => state.genres);
         navigate('/')
     }
     const onchange = (e) => {
+       dispatch(resetpagina())
        dispatch(ordervideogames(e.target.value))
     }
-    const onchangeGenre = () => {
+    const onchangeGenre = (e) => {
+        dispatch(resetpagina())
+        dispatch(filtergames(e.target.value))
     }
     return (
        <div>
         <div className={cssNav.navcontainer}>
           <h2 className={cssNav.titulo} onClick={onclick} >Videogames App</h2>
             <div>
-                <select name="genre" id="genre" onChange={onchange} className={cssNav.filtergenre}>
-                <option value="genres" selected disabled hidden>Genre : </option>
+                <select name="genre" id="genre" onChange={onchangeGenre} className={cssNav.filtergenre}>
+                <option key='firstoptiongenre' value="genres" selected disabled hidden >Genre : </option>
                  {
                       genres?.map(genre => {
-                      return <option value={genre.name} key={genre.id}>{genre.name}</option>
+                      return <option value={genre.name} key={genre.idapi}>{genre.name}</option>
                       })
                  }
                 </select>

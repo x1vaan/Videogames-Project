@@ -1,9 +1,10 @@
 .titulo{
     position: relative;
-    font-family: 'Bangers', cursive;
-    font-size: 70px;
-    color: #FFD960;
-    left: 80px;
+    font-family: 'Graduate', cursive;
+    font-size: 50px;
+    color: #5B8291;
+    left: 100px;
+    cursor: pointer;
 }
 
 .navcontainer {
@@ -11,39 +12,57 @@
     justify-content: flex-start;
     margin-bottom: 150px;
     margin-top: -20px;
+    border-bottom: solid 1px #17181C;
+    background-color: rgba(47, 67, 77, 0.9) ;
 }
 
 .filtergenre {
     position: absolute;
-    top: 50px;
-    left: 550px;
-    font-family: 'Bangers', cursive;
+    top: 30px;
+    left: 650px;
+    font-family: 'Staatliches', cursive;
     height: 50px;
     border-radius: 20px;
-    font-size: 17px;
+    font-size: 18px;
     border: none;
+    cursor: pointer;
+}
+.filtergenre:hover{
+    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25);
+    color: #FA4753 ;
 }
 
 .orderbyname {
   position: absolute;
-  top: 50px;
-  left: 750px;
-  font-family: 'Bangers', cursive;
+  top: 30px;
+  left: 850px;
+  font-family: 'Staatliches', cursive;
   height: 50px;
   border-radius: 20px;
-  font-size: 17px;
+  font-size: 18px;
   width: 150px;
   border: none;
+  cursor: pointer;
+} 
+.orderbyname:hover{
+    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25);
+    color: #FA4753 ;
 }
+
 
 .orderbyrating {
     position: absolute;
-    top: 50px;
-    left: 950px;
-    font-family: 'Bangers', cursive;
+    top: 30px;
+    left: 1025px;
+    font-family: 'Staatliches', cursive;
     height: 50px;
     border-radius: 20px;
-    font-size: 17px;
+    font-size: 18px;
     width: 150px;
     border: none;
+    cursor: pointer;
+}  
+.orderbyrating:hover{
+    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25); 
+    color: #FA4753 ;
 }

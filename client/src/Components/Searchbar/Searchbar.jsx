@@ -8,7 +8,6 @@ const[game, setGame] = useState('');
 const dispatch = useDispatch();
 const onchange = (e) => {
   setGame(e.target.value)
-  dispatch(searchgame(game))
 }
 const enter = (e) => {
  if(e.key === 'Enter') {
@@ -20,10 +19,10 @@ const onclear = () => {
     dispatch(resetsearch())
 }
     return (
-        <div>
+        <div className={cssSearch.container}>
             <input 
             type="text" 
-            placeholder="  Search game..." 
+            placeholder="Press enter to Search game..." 
             id="text"  
             value={game}
             onChange={onchange}
@@ -32,7 +31,7 @@ const onclear = () => {
             />
             <div>
              {
-              game.length > 0 && <button onClick={onclear} className={cssSearch.button}>Clear</button>
+              game.length > 0 && <button onClick={onclear} className={cssSearch.button}>X</button>
              } 
             </div>
         </div>

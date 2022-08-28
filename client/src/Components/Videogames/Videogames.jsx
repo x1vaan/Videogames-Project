@@ -2,20 +2,27 @@ import React, { useEffect, useState }from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Videogame from '../Videogame/Videogame.jsx'
 import videogamescss from './Videogames.module.css'
-import { getvideogames } from "../../Redux/Actions.js";
+import { getvideogames, resetfilters, resetpagina } from "../../Redux/Actions.js";
 import Pagination from '../Pagination/Pagination'
 import { useNavigate } from "react-router-dom";
 
 export default function Videogames() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     const videogames = useSelector(state => state.videogames)
     const searchjuego = useSelector(state => state.searchjuego)
     const currentpage = useSelector(state => state.pagina)
+    const filterstate = useSelector(state => state.filterstate)
+    const orderstate = useSelector(state => state.orderstate)
+
     const [gamesPerPage, setGamesPerPage ] = useState(15);
-    useEffect(()=> {
-        if(videogames.length === 0) dispatch(getvideogames())
-    },[videogames])
+    useEffect(() => {
+      dispatch(resetfilters())
+      dispatch(resetpagina())
+      dispatch(getvideogames())
+    },[])
+
     const ultimoindex = currentpage * gamesPerPage
     const indexinicio = ultimoindex - gamesPerPage
     const games = videogames.slice(indexinicio,ultimoindex)
@@ -23,18 +30,31 @@ export default function Videogames() {
     const onclick = () =>{
       navigate('/videogames/create')
     }
+    const onreset = () => {
+      dispatch(resetfilters())
+      dispatch(getvideogames())
+    }
     return ( 
         <div>
             <div>
-                <button onClick={onclick}>Create Videogame</button>
+                <button onClick={onclick} className={videogamescss.creategame}>Create Videogame</button>
+            </div>
+            <div>
+              {
+                filterstate !== 'Not filtered' || orderstate === 'Ordered' ? 
+                <button onClick={onreset} className={videogamescss.buttonreset}>Reset filters</button> : ''
+              }
             </div>
            <div className={videogamescss.pagination}>
              {
-                <Pagination juegos={videogames.length} games_per_page={gamesPerPage}/>
+                <Pagination juegos={videogames.length} games_per_page={gamesPerPage} className={videogamescss.pagination}/>
              }
            </div>
           <div className={videogamescss.container}>
            {  
+           
+             videogames.length === 0 && filterstate === 'Not found' ? <p>Genre not found</p> : 
+
                searchjuego.length === 0 ? games?.map(juego => {
                 return <Videogame 
                 name={juego.name} 

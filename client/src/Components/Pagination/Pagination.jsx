@@ -17,7 +17,7 @@ export default function Pagination ({juegos, games_per_page}) {
                     return <button 
                     onClick={() => dispatch(setpage(page))} 
                     key={index}
-                    className={page === currentpage ? csspage.active : '' }
+                    className={page === currentpage ? csspage.active : csspage.desactive }
                     >
                     {page}
                     </button>

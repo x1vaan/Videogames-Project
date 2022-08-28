@@ -8,8 +8,10 @@ export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME'
 export const SEARCH_GAME = 'SEARCH_GAME'
 export const RESET_SEARCH = "RESET_SEARCH"
 export const GAMES_ORDERED = 'GAMES_ORDERED'
+export const GAMES_FILTERED = 'GAMES_FILTERED'
 export const RESET_FILTERS = 'RESET_FILTERS'
 export const SET_PAGE = 'SET_PAGE'
+export const RESET_PAGINA = 'RESET_PAGINA'
 
 export const getvideogames = () => {
     return function(dispatch){
@@ -62,6 +64,15 @@ export const ordervideogames = (order) => {
     }
 }
 
+export const filtergames = (genero) => {
+    return function(dispatch) {
+        return axios.get(`http://localhost:3001/game/${genero}`)
+        .then(videogamesfiltered => {
+            dispatch({type : GAMES_FILTERED, payload : videogamesfiltered.data })
+        })
+    }
+}
+
 export const resetfilters = () => {
     return {
         type : RESET_FILTERS
@@ -73,4 +84,10 @@ export const setpage = (pagina) => {
     type : SET_PAGE,
     payload: pagina
   }
+}
+
+export const resetpagina = () => {
+    return {
+        type : RESET_PAGINA
+    }
 }

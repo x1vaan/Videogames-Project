@@ -1,9 +1,75 @@
 .background_image {
-  height: 500px;
-  width: 800px;
+  display: flex;
+  position: relative;
+  top: 50px;
+  left: 20px;
+  height: 600px;
+  width: 750px;
+  border-radius: 20px;
 }
 
 .details {
-  font-family: 'Bangers', cursive;
-  color: #FFD960;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #FA4753;
+}
+
+.name {
+  position: relative;
+  top: -540px;
+  left: -10px;
+  font-size: 30px;
+}
+.pname{ 
+  margin-left: 20px;
+  position: relative;
+  top: -67px;
+  left: 200px;
+}
+
+.description {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -500px;
+  left: 40px;
+}
+
+.releasedate {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -540px;
+  left: 20px;
+  font-size: 30px;
+}
+
+.rating{
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -560px;
+  left: 475px;
+  font-size: 30px;
+}
+
+.platforms {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -570px;
+  left: 590px;
+  font-size: 30px;
+}
+
+.genres {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -580px;
+  left: 525px;
+  font-size: 30px;
 }
