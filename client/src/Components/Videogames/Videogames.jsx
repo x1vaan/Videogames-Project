@@ -42,7 +42,7 @@ export default function Videogames() {
             <div>
               {
                 filterstate !== 'Not filtered' || orderstate === 'Ordered' ? 
-                <button onClick={onreset} className={videogamescss.buttonreset}>Reset filters</button> : ''
+                <button onClick={onreset} className={videogamescss.buttonreset}>Clean filters</button> : ''
               }
             </div>
            <div className={videogamescss.pagination}>

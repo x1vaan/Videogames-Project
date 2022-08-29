@@ -35,7 +35,7 @@ useEffect(() => {
           </div>
          <div className={css.platforms}>
             <p>Platforms: </p>
-         <p className={css.p}>{videogamedetail.videogame?.platforms.split(',')}</p>
+         <p className={css.p}>{videogamedetail.videogame?.platforms}</p>
          </div>
          <div className={css.genres}>
             <p>Genres: </p>

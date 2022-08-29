@@ -55,9 +55,11 @@ const validate = (input) => {
 const handleOnchange = (e) => {
     setError(validate({ ...input,[e.target.name] : e.target.value}));
  if(e.target.name === 'genre') {
-     const find = input.genre.find(ele => ele === e.target.value);
+     const find = input.genre.find(ele => ele.name === e.target.value);
      if(find)return
-    setInput({...input, genre : [...input.genre, e.target.value ]})
+    const selectedIndex = e.target.options.selectedIndex;
+    setInput({...input, genre : [...input.genre, { idapi : e.target.options[selectedIndex].getAttribute('key_data'), name : e.target.value} ]})
+    // console.log(e.target.options[selectedIndex].getAttribute('key_data'))
     return
  }
  if(e.target.name === 'platforms'){
@@ -74,7 +76,7 @@ const handleOnclickback = () => {
    navigate('/videogames')
 }
 const onsubmit = (e) => {
-    if(error) {
+    if(error.length === 0) {
         e.preventDefault()
         return alert('Missing inputs')
     }
@@ -127,14 +129,14 @@ const onsubmit = (e) => {
                 <option value="genres" selected disabled hidden key='firstoption'>Genres : </option>
                  {
                       generos?.map(genre => {
-                      return <option value={genre.name} key={genre.idapi}>{genre.name}</option>
+                      return <option value={genre.name} key_data={genre.idapi} key={genre.idapi}>{genre.name}</option>
                       })
                  }
                 </select>
                 <div className={cssform.generos}>
                 {
                  input.genre?.map(genero => {
-                        return <button key={genero} className={cssform.buttongenre}>{genero}</button>
+                        return <button key={genero.idapi} className={cssform.buttongenre}>{genero.name}</button>
                  })
                 }
                 </div>

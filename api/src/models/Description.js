@@ -8,6 +8,10 @@ module.exports = (sequelize) => {
      },
      idapi : {
       type : DataTypes.STRING,
+      defaultValue: 'DB GAME'
+     },
+     idDB: {
+      type : DataTypes.INTEGER,
      }
   });
 }

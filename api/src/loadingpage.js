@@ -17,7 +17,7 @@ module.exports = {  loadingvideogames : async () => {
     videogamesjoin.forEach(game => {
        let plataformas = game.parent_platforms.map(plataforma => {
              return plataforma.platform.name
-        }).join('')
+        }).join()
         videogames.push({
             idapi : game.id,
             name : game.name,

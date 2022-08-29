@@ -38,7 +38,7 @@ router.get('/videogame/:id', async (req, res) => {
   try {
     const identifier = req.params.id
     const videogame = await Videogame.findByPk(identifier, {include : Genre})  //buscando el juego por id y juntando con sus genero
-    const description = await Description.findOne({where : {idapi : videogame.idapi}})// usando el videogame que trajimos con id para buscar la descripcion de ese juego con el adapi
+    const description = await Description.findOne({where : {[Op.or] : [{idapi : videogame.idapi}, {idDB : videogame.id}]}})// usando el videogame que trajimos con id para buscar la descripcion de ese juego con el adapi
    res.status(200).send({videogame,description : description?.description});// 
   } catch (error) {
     res.status(404).send(error.message)
@@ -47,9 +47,15 @@ router.get('/videogame/:id', async (req, res) => {
 
 router.post('/videogames/create', async (req, res) =>{
   try {
-    const {name,description,release_date,rating,platforms} = req.body
-    const gamecreated = await Videogame.create({name,description,release_date,rating,platforms})
-   return res.status(200).send(gamecreated)
+    let {name,description,release_date,rating,genres,platforms} = req.body
+     platforms = platforms.join()
+    await Videogame.create({name,description,release_date,rating,platforms})
+    const createdgame = await Videogame.findOne({where : {name : name }})
+    genres.forEach(async genre => {
+      await createdgame.addGenre(genre.idapi)
+    })
+    await Description.create({description : description, idDB : createdgame.id})
+   return res.status(200).send(createdgame)
   } catch (error) {
     res.status(404).send(error.message)
   }
@@ -80,6 +86,12 @@ router.get('/games/:order', async (req, res) => {
     case 'Worst' :
     const gameorderedWORST = await Videogame.findAll({order : [['rating', 'ASC']],include : Genre})
     return res.status(200).send(gameorderedWORST)
+    case 'Api' :
+    const gamesfromapi = await Videogame.findAll({where : {[Op.not] : [{idapi : null}]}, include : Genre})
+    return res.status(200).send(gamesfromapi)
+    case 'Created' :
+    const gamescreated = await Videogame.findAll({where : {idapi : 'no tiene idapi'}, include : Genre})
+    return res.status(200).send(gamescreated)
   }
 });
 

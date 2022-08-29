@@ -19,7 +19,7 @@
 .filtergenre {
     position: absolute;
     top: 30px;
-    left: 650px;
+    left: 600px;
     font-family: 'Staatliches', cursive;
     height: 50px;
     border-radius: 20px;
@@ -35,7 +35,7 @@
 .orderbyname {
   position: absolute;
   top: 30px;
-  left: 850px;
+  left: 800px;
   font-family: 'Staatliches', cursive;
   height: 50px;
   border-radius: 20px;
@@ -53,7 +53,7 @@
 .orderbyrating {
     position: absolute;
     top: 30px;
-    left: 1025px;
+    left: 975px;
     font-family: 'Staatliches', cursive;
     height: 50px;
     border-radius: 20px;
@@ -63,6 +63,22 @@
     cursor: pointer;
 }  
 .orderbyrating:hover{
+    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25); 
+    color: #FA4753 ;
+}
+
+.orderbyorigin {
+    position: absolute;
+    top: 30px;
+    left: 1150px;
+    font-family: 'Staatliches', cursive;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 150px;
+    border: none;
+    cursor: pointer;
+}.orderbyorigin:hover{
     box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25); 
     color: #FA4753 ;
 }

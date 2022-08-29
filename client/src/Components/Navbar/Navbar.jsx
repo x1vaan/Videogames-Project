@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import cssNav from '../Navbar/Navbar.module.css'
 import {useDispatch, useSelector } from 'react-redux'
-import { getgenres, ordervideogames, filtergames, resetfilters, resetpagina } from "../../Redux/Actions";
+import { getgenres, ordervideogames, filtergames, resetpagina } from "../../Redux/Actions";
 import Searchbar from "../Searchbar/Searchbar";
 import { useNavigate } from 'react-router-dom'
 
@@ -50,7 +50,14 @@ const genres = useSelector(state => state.genres);
                     <option value="Best">Best</option>
                     <option value="Worst">Worst</option>
                 </select>
-            </div>    
+            </div> 
+            <div>
+              <select name="orderbyorigin" id="orderbyorigin" onChange={onchange} className={cssNav.orderbyorigin}>
+              <option value="orderbyorigin" selected disabled hidden>Order by origin : </option>
+              <option value="Api">Api</option>
+                <option value="Created">Created</option>
+              </select>
+            </div>   
        </div>
         <Searchbar/>
         </div>

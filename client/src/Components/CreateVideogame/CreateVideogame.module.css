@@ -54,6 +54,7 @@
     top: 190px ;
     font-family: 'Staatliches', cursive;
     font-size: 30px;
+    color: #FA4753;
 }
 
 
@@ -80,6 +81,7 @@
     top: 290px;
     font-family: 'Staatliches', cursive;
     font-size: 30px;
+    color: #FA4753;
 }
 
 .rating{
@@ -106,6 +108,7 @@
     top: 390px;
     font-family: 'Staatliches', cursive;
     font-size: 30px;
+    color: #FA4753;
 }
 .description{
     position: absolute;
