@@ -15,6 +15,8 @@ const onclick = () => {
         <div>
             <h1 className={cssHome.hometittle}>Videogame App</h1>
             <button className={cssHome.button} onClick={onclick}>Start</button>
+            {/* <h1 className={cssHome.developed}>Developed by Ivan Garcia</h1>
+            <i className="fa fa-github fa_custom fa-2x"></i> */}
         </div>
     )
 }

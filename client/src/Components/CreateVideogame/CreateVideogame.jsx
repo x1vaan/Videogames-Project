@@ -40,8 +40,8 @@ const validate = (input) => {
         errors.rating = 'Rating has to be between 1 to 5'
     }
     if(input.description){
-        if(!/^.{1,30}$/.test(input.description)) {
-            errors.description = 'Maximum of 30 characters'
+        if(!/^.{10,30}$/.test(input.description)) {
+            errors.description = 'Min 10 and max 30 characters'
         }
     }
     if(!input.releasedate) {
@@ -55,17 +55,20 @@ const validate = (input) => {
 const handleOnchange = (e) => {
     setError(validate({ ...input,[e.target.name] : e.target.value}));
  if(e.target.name === 'genre') {
-     const find = input.genre.find(ele => ele.name === e.target.value);
-     if(find)return
+     const find = input.genre?.find(ele => ele.name === e.target.value);
+     if(find) return alert('Genre already added');
+     else if(e.target.value === 'genres') return
+    else if(input.genre.length === 6) return alert('Can not add more than 6 genres');
     const selectedIndex = e.target.options.selectedIndex;
     setInput({...input, genre : [...input.genre, { idapi : e.target.options[selectedIndex].getAttribute('key_data'), name : e.target.value} ]})
     // console.log(e.target.options[selectedIndex].getAttribute('key_data'))
     return
  }
  if(e.target.name === 'platforms'){
-    const find = input.platforms.find(ele => ele === e.target.value)
-    if(find) return
-    if(input.platforms.length === 3) return
+    const find = input.platforms?.find(ele => ele === e.target.value)
+    if(find) return alert('Platform already added')
+    if(input.platforms.length === 3) return alert('Can not add more platforms')
+    if(e.target.value === 'platform') return
     setInput({...input, platforms : [...input.platforms, e.target.value]})
     return
  }
@@ -75,21 +78,44 @@ const handleOnchange = (e) => {
 const handleOnclickback = () => {
    navigate('/videogames')
 }
-const onsubmit = (e) => {
-    if(error.length === 0) {
-        e.preventDefault()
-        return alert('Missing inputs')
-    }
-    axios.post('http://localhost:3001/videogames/create', {
-        name: input.name,
-        description : input.description,
-        release_date : input.releasedate,
-        rating: input.rating,
-        genres: input.genre,
-        platforms : input.platforms
+
+const onclickDeletegenre= (e) => {
+    setInput({
+        ...input,
+        genre : input.genre?.filter(ele => ele.name !== e.target.value)
     })
-    alert('Game created!')
 }
+
+const onclickdeleteplaftorm = (e) => {
+  setInput({
+    ...input,
+    platforms : input.platforms?.filter(ele => ele !== e.target.value)
+  })
+}
+
+const isEmpty = (obj) =>{
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+    return true;
+}
+const onsubmit = (e) => {
+   if(isEmpty(error) && input.genre.length !== 0 && input.platforms.length !== 0){
+       axios.post('http://localhost:3001/videogames/create', {
+           name: input.name,
+           description : input.description,
+           release_date : input.releasedate,
+           rating: input.rating,
+           genres: input.genre,
+           platforms : input.platforms
+       })
+       alert('Game created!')
+   } else {
+     e.preventDefault()
+     return alert('Missing inputs')
+   }
+ }
     return (
         <div>
             <button className={cssform.button} onClick={handleOnclickback}>Back</button>
@@ -126,24 +152,17 @@ const onsubmit = (e) => {
                     
                     <label>
                     <select name="genre" id="genre" onChange={handleOnchange} className={cssform.selectgenre}>
-                <option value="genres" selected disabled hidden key='firstoption'>Genres : </option>
+                <option value="genres" defaultValue key='firstoption'>Genres : </option>
                  {
                       generos?.map(genre => {
                       return <option value={genre.name} key_data={genre.idapi} key={genre.idapi}>{genre.name}</option>
                       })
                  }
                 </select>
-                <div className={cssform.generos}>
-                {
-                 input.genre?.map(genero => {
-                        return <button key={genero.idapi} className={cssform.buttongenre}>{genero.name}</button>
-                 })
-                }
-                </div>
                     </label>
                     <label>
                         <select name="platforms" id="platforms" onChange={handleOnchange} className={cssform.selectplatform}>
-                        <option value="platform" selected disabled hidden key='firstoptionplatform'>Platforms : </option>
+                        <option value="platform" defaultValue key='firstoptionplatform'>Platforms : </option>
                         <option value="PC">PC</option>
                         <option value="Xbox">Xbox</option>
                         <option value="Playstation">Playstation</option>
@@ -151,10 +170,25 @@ const onsubmit = (e) => {
                         <option value="Android">Android</option>
                         </select>
                        {
-                         input.platforms.length === 3 ? <p className={cssform.platform}>Max 3 platforms</p> : ''
+                         input.platforms.length === 3 ? <p className={cssform.platform}>Can not add more than 3 platforms</p> : ''
                        }
+                       
                     </label>
                 </form>
+                <div className={cssform.generos}>
+                {
+                 input.genre?.map(genero => {
+                    return <button key={genero.idapi} value={genero.name} className={cssform.buttongenre} onClick={onclickDeletegenre}>{genero.name}</button>
+                 })
+                }
+                </div>
+                <div className={cssform.plataformas}>
+                 {
+                   input.platforms?.map(plataforma => {
+                    return <button key={plataforma} value={plataforma} onClick={onclickdeleteplaftorm} className={cssform.buttonplatform}>{plataforma}</button>
+                    })
+                 }
+                </div>
             </div>
         </div>
     )

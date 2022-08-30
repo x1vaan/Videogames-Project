@@ -15,7 +15,7 @@
 .button::after, button::before{
     content: "";
     position: absolute;
-    opacity: 0.01;
+    opacity: 0.3;
     background: #5B8291;
     border-radius: inherit;
     width: 100%;
@@ -66,4 +66,12 @@
          0 0 80px #fff,
          0 0 160px #fff,
     }
+}
+
+.developed {
+    position: absolute;
+    left: 60px;
+    top: 600px;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 70px;
 }

@@ -53,7 +53,7 @@ export default function Videogames() {
           <div className={videogamescss.container}>
            {  
            
-             videogames.length === 0 && filterstate === 'Not found' ? <p>Genre not found</p> : 
+             videogames.length === 0 && filterstate === 'Not found' ? <p className={videogamescss.notfound}>Game not found</p> : 
 
                searchjuego.length === 0 ? games?.map(juego => {
                 return <Videogame 

@@ -18,13 +18,15 @@
    position: relative;
    left: 40px;
    width: 200px;
-   text-decoration: none;
    color: #98dad9;
 }
 
 .p2{
   font-family: 'Didact Gothic', sans-serif;
   position: relative;
-  text-decoration: none;
   color: #98dad9;
+}
+
+.navlink{
+  text-decoration: none;
 }

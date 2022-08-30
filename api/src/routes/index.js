@@ -39,7 +39,7 @@ router.get('/videogame/:id', async (req, res) => {
     const identifier = req.params.id
     const videogame = await Videogame.findByPk(identifier, {include : Genre})  //buscando el juego por id y juntando con sus genero
     const description = await Description.findOne({where : {[Op.or] : [{idapi : videogame.idapi}, {idDB : videogame.id}]}})// usando el videogame que trajimos con id para buscar la descripcion de ese juego con el adapi
-   res.status(200).send({videogame,description : description?.description});// 
+    res.status(200).send({videogame,description : description?.description});
   } catch (error) {
     res.status(404).send(error.message)
   }
@@ -49,7 +49,7 @@ router.post('/videogames/create', async (req, res) =>{
   try {
     let {name,description,release_date,rating,genres,platforms} = req.body
      platforms = platforms.join()
-    await Videogame.create({name,description,release_date,rating,platforms})
+    await Videogame.create({name,release_date,rating,platforms})
     const createdgame = await Videogame.findOne({where : {name : name }})
     genres.forEach(async genre => {
       await createdgame.addGenre(genre.idapi)

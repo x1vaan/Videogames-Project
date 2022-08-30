@@ -49,3 +49,9 @@
   border: 1px solid #D7415D;
   cursor: pointer;
  }
+
+ .notfound {
+   position: relative;
+   font-family: 'Staatliches', cursive;
+   font-size: 50px;
+ }

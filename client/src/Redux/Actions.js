@@ -3,7 +3,7 @@ import axios from "axios";
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const GET_VIDEOGAMEDETAIL = "GET_VIDEOGAMEDETAIL"
 export const GET_GENRES = "GET_GENRES"
-export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
+// export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
 export const SEARCH_GAME = 'SEARCH_GAME'
 export const RESET_SEARCH = "RESET_SEARCH"
 export const GAMES_ORDERED = 'GAMES_ORDERED'

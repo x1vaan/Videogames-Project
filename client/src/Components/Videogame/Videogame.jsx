@@ -13,7 +13,7 @@ export default function Videogame(props) {
 
     return (
         <div className={cssVideogame.stylecontainer}>
-            <NavLink to={`/videogame/${props.id}`}>
+            <NavLink to={`/videogame/${props.id}`} className={cssVideogame.navlink}>
              <div className={cssVideogame.body}>
             <div style={image}></div>
             <p className={cssVideogame.p1}>{props.name}</p>

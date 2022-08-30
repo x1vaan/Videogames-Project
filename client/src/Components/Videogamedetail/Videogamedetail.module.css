@@ -1,75 +1,88 @@
-.background_image {
-  display: flex;
+.container {
+  height: 850px;
+  width: 1400px;
+  border: solid 3px;
   position: relative;
-  top: 50px;
-  left: 20px;
-  height: 600px;
+  top: 40px;
+  left: 260px;
+  border-radius: 10px;
+  background-color: rgba(23, 24, 28, 0.9);
+}
+
+ .background_image {
+  display: flex;
+  position: absolute;
+  left: 0px;
+  height:550px;
   width: 750px;
   border-radius: 20px;
 }
 
-.details {
+.p{
+  position: absolute;
+  right: 270px;
+  top: 20px;
   font-family: 'Didact Gothic', sans-serif;
-  color: #FA4753;
+  font-size: 30px;
+  color: #98dad9;
+  width: 320px;
 }
 
-.name {
-  position: relative;
-  top: -540px;
-  left: -10px;
-  font-size: 30px;
+.prelease {
+    position: absolute;
+    right: 250px;
+    top: 150px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 30px;
+    color: #98dad9;
+    width: 380px;
 }
-.pname{ 
-  margin-left: 20px;
-  position: relative;
-  top: -67px;
-  left: 200px;
+
+.prating{
+  position: absolute;
+    right: 450px;
+    top: 220px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 30px;
+    color: #98dad9;
+}
+
+.platforms{
+  position: absolute;
+  right: 230px;
+  top: 290px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 30px;
+  color: #98dad9;
+  width: 400px;
+}
+
+.genres{
+  position: absolute;
+  right: 230px;
+  top: 430px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 30px;
+  color: #98dad9;
+  width: 400px;
 }
 
 .description {
-  width: 900px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: -500px;
-  left: 40px;
+  position: absolute;
+  left: 0px;
+  top: 550px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 20px;
+  color: #98dad9;
 }
 
-.releasedate {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: -540px;
-  left: 20px;
-  font-size: 30px;
-}
-
-.rating{
-  width: 800px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: -560px;
-  left: 475px;
-  font-size: 30px;
-}
-
-.platforms {
-  width: 800px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: -570px;
-  left: 590px;
-  font-size: 30px;
-}
-
-.genres {
-  width: 800px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: -580px;
-  left: 525px;
-  font-size: 30px;
+.buttonback {
+  position: absolute;
+  left: 100px;
+  top: 100px;    
+  padding: 20px 50px;
+  font-size: 18px;
+  font-family: 'Staatliches', cursive;
+  background-color: #FA4753;
+  cursor: pointer;
 }

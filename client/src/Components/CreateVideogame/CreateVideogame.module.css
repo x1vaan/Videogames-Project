@@ -187,6 +187,7 @@
     left: 1110px;
     font-family: 'Staatliches', cursive;
     font-size: 30px;
+    color: #FA4753;
 }
 
 .generos{
@@ -200,4 +201,21 @@
     margin: 20px 5px;
     padding: 5px 5px;
     background-color:#FA4753 ;
+    cursor: pointer;
+}
+
+.buttonplatform{
+    position: relative;
+    margin: 20px 5px;
+    padding: 5px 5px;
+    background-color:#FA4753 ;
+    cursor: pointer;
+    left: 600px;
+}
+
+.plataformas {
+    margin: 5px;
+    position: absolute;
+    top: 650px;
+    left: 250px;
 }
