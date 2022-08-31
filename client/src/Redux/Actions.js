@@ -56,7 +56,7 @@ export const resetsearch = () => {
 
 export const ordervideogames = (order) => {
     return function(dispatch){
-        return axios.get(`/${order}`)
+        return axios.get(`games/${order}`)
         .then(videogamesOrdered => {
             dispatch({type : GAMES_ORDERED, payload: videogamesOrdered.data })
         })
