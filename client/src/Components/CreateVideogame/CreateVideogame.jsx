@@ -102,7 +102,7 @@ const isEmpty = (obj) =>{
 }
 const onsubmit = (e) => {
    if(isEmpty(error) && input.genre.length !== 0 && input.platforms.length !== 0){
-       axios.post('http://localhost:3001/videogames/create', {
+       axios.post('/videogames/create', {
            name: input.name,
            description : input.description,
            release_date : input.releasedate,

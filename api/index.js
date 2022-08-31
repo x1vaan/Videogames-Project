@@ -18,6 +18,7 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const { load } = require('dotenv');
+const { PORT } = process.env
 const app = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { loadingvideogames, loadinggenres, loadingdescription, genresforeachgame} = require('./src/loadingpage.js')
@@ -30,7 +31,7 @@ conn.sync({ force: true }).then(async () =>{
 }).then(() =>{
   genresforeachgame();
 }).then(() => {
-  app.listen(3001, () => {
+  app.listen(process.env.PORT, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 })

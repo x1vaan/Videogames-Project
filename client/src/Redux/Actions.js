@@ -14,7 +14,7 @@ export const RESET_PAGINA = 'RESET_PAGINA'
 
 export const getvideogames = () => {
     return function(dispatch){
-        return axios.get('http://localhost:3001/videogames')
+        return axios.get('/videogames')
         .then(videogames =>{
             dispatch({type : GET_VIDEOGAMES , payload : videogames.data})
         })
@@ -23,7 +23,7 @@ export const getvideogames = () => {
 
 export const getvideogamedetail = (id) =>{
     return function(dispatch){
-        return axios.get(`http://localhost:3001/videogame/${id}`)
+        return axios.get(`/videogame/${id}`)
         .then(videogamedetail => {
             dispatch({type : GET_VIDEOGAMEDETAIL, payload : videogamedetail.data})
         })
@@ -32,7 +32,7 @@ export const getvideogamedetail = (id) =>{
 
 export const getgenres = () => {
     return function (dispatch){
-        return axios.get('http://localhost:3001/genres')
+        return axios.get('/genres')
         .then(genre =>{
             dispatch({type: GET_GENRES, payload : genre.data})
         })
@@ -41,7 +41,7 @@ export const getgenres = () => {
 
 export const searchgame = (name) => {
     return function(dispatch){
-        return axios.get(`http://localhost:3001/videogames?name=${name}`)
+        return axios.get(`/videogames?name=${name}`)
         .then(videogames =>{
             dispatch({type : SEARCH_GAME , payload : videogames.data})
         })
@@ -56,7 +56,7 @@ export const resetsearch = () => {
 
 export const ordervideogames = (order) => {
     return function(dispatch){
-        return axios.get(`http://localhost:3001/games/${order}`)
+        return axios.get(`/${order}`)
         .then(videogamesOrdered => {
             dispatch({type : GAMES_ORDERED, payload: videogamesOrdered.data })
         })
@@ -65,7 +65,7 @@ export const ordervideogames = (order) => {
 
 export const filtergames = (genero) => {
     return function(dispatch) {
-        return axios.get(`http://localhost:3001/game/${genero}`)
+        return axios.get(`/game/${genero}`)
         .then(videogamesfiltered => {
             dispatch({type : GAMES_FILTERED, payload : videogamesfiltered.data })
         })
