@@ -23,7 +23,7 @@ const app = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { loadingvideogames, loadinggenres, loadingdescription, genresforeachgame} = require('./src/loadingpage.js')
 // Syncing all the models at once.
-conn.sync({force: false}).then(async () =>{
+conn.sync({force: true}).then(async () =>{
   await loadingvideogames();
   await loadinggenres();
 }).then(()=> {
