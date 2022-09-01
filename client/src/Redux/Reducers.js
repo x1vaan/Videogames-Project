@@ -1,4 +1,4 @@
-import {GET_VIDEOGAMES, GET_VIDEOGAMEDETAIL, GET_GENRES, SEARCH_GAME, RESET_SEARCH, GAMES_ORDERED, SET_PAGE, GAMES_FILTERED, RESET_FILTERS, RESET_PAGINA} from './Actions'
+import {GET_VIDEOGAMES, GET_VIDEOGAMEDETAIL, GET_GENRES, SEARCH_GAME, RESET_SEARCH, GAMES_ORDERED, SET_PAGE, GAMES_FILTERED, RESET_FILTERS, RESET_PAGINA, RESET_VIDEOGAMEDETAIL} from './Actions'
 
 const initialState = {
   videogames: [],
@@ -64,6 +64,11 @@ export default function Reducer (state = initialState,action) {
           case RESET_PAGINA:
             return {
               ...state, pagina : 1
+            }
+            case RESET_VIDEOGAMEDETAIL:{
+              return {
+                ...state, videogamedetail : {}
+              }
             }
     default :
     return state

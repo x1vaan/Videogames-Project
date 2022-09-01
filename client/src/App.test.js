@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import Nav from '../src/Components/Navbar/Navbar.jsx'
 
 test('renders learn react link', () => {
   render(<App />);

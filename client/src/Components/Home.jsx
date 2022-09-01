@@ -11,12 +11,14 @@ const onclick = () => {
   dispatch(resetsearch())
     navigate('/videogames')
 }
+
     return (
         <div>
             <h1 className={cssHome.hometittle}>Videogame App</h1>
             <button className={cssHome.button} onClick={onclick}>Start</button>
-            {/* <h1 className={cssHome.developed}>Developed by Ivan Garcia</h1>
-            <i className="fa fa-github fa_custom fa-2x"></i> */}
+            <h1 className={cssHome.developed}>Developed by Ivan Garcia</h1>
+            <a className="fa fa-github fa_custom fa-3x" href="https://github.com/x1vaan"></a>
+            <a class="fa fa-linkedin fa_custom2 fa-2x" href="https://www.linkedin.com/in/ivan-garcia-7055b6224/"></a>
         </div>
     )
 }

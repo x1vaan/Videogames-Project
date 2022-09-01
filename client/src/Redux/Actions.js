@@ -11,6 +11,7 @@ export const GAMES_FILTERED = 'GAMES_FILTERED'
 export const RESET_FILTERS = 'RESET_FILTERS'
 export const SET_PAGE = 'SET_PAGE'
 export const RESET_PAGINA = 'RESET_PAGINA'
+export const RESET_VIDEOGAMEDETAIL = 'RESET_VIDEOGAMEDETAIL'
 
 export const getvideogames = () => {
     return function(dispatch){
@@ -88,5 +89,11 @@ export const setpage = (pagina) => {
 export const resetpagina = () => {
     return {
         type : RESET_PAGINA
+    }
+}
+
+export const resetvideogamedetail = () => {
+    return {
+        type : RESET_VIDEOGAMEDETAIL
     }
 }

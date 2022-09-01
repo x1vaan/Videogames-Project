@@ -61,7 +61,6 @@ const handleOnchange = (e) => {
     else if(input.genre.length === 6) return alert('Can not add more than 6 genres');
     const selectedIndex = e.target.options.selectedIndex;
     setInput({...input, genre : [...input.genre, { idapi : e.target.options[selectedIndex].getAttribute('key_data'), name : e.target.value} ]})
-    // console.log(e.target.options[selectedIndex].getAttribute('key_data'))
     return
  }
  if(e.target.name === 'platforms'){
@@ -93,7 +92,7 @@ const onclickdeleteplaftorm = (e) => {
   })
 }
 
-const isEmpty = (obj) =>{
+  const isEmpty = (obj) =>{
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
             return false;

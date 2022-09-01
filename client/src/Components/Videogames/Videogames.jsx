@@ -2,14 +2,14 @@ import React, { useEffect, useState }from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Videogame from '../Videogame/Videogame.jsx'
 import videogamescss from './Videogames.module.css'
-import { getvideogames, resetfilters, resetpagina } from "../../Redux/Actions.js";
+import { getvideogames, resetfilters, resetpagina, resetvideogamedetail } from "../../Redux/Actions.js";
 import Pagination from '../Pagination/Pagination'
 import { useNavigate } from "react-router-dom";
 
 export default function Videogames() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+     
     const videogames = useSelector(state => state.videogames)
     const searchjuego = useSelector(state => state.searchjuego)
     const currentpage = useSelector(state => state.pagina)
@@ -21,6 +21,7 @@ export default function Videogames() {
       dispatch(resetfilters())
       dispatch(resetpagina())
       dispatch(getvideogames())
+      dispatch(resetvideogamedetail())
     },[])
 
     const ultimoindex = currentpage * gamesPerPage

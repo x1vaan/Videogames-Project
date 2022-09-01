@@ -15,24 +15,36 @@ useEffect(() => {
 const handleOnclickback = () => {
     navigate('/videogames')
  }
-    return (
+ const isEmpty = (obj) =>{
+  for(var prop in obj) {
+      if(obj.hasOwnProperty(prop))
+          return false;
+  }
+  return true;
+}
+  return (
+    <div>
+      {
+        isEmpty(videogamedetail) ? <div className={css.loading}><p>Loading...</p></div>
+        : <div>
+    <button className={css.buttonback} onClick={handleOnclickback}>Back</button>
+     <div className={css.container}>
         <div>
-        <button className={css.buttonback} onClick={handleOnclickback}>Back</button>
-         <div className={css.container}>
-            <div>
-             <img 
-             src={videogamedetail.videogame?.background_image} 
-             alt="Image not found" 
-             className={css.background_image}
-                />
-            </div>
-             <p className={css.p}>Name: <span>{videogamedetail?.videogame?.name}</span> </p> 
-             <p className={css.prelease}>Release Date: <span>{videogamedetail.videogame?.release_date}</span></p> 
-             <p className={css.prating}>Rating: <span>{videogamedetail.videogame?.rating}</span></p>
-             <p className={css.platforms}>Platforms: <span>{videogamedetail.videogame?.platforms}</span></p>
-             <p className={css.genres}>Genres: <span>{videogamedetail.videogame?.Genres.map(genre => genre.name + ' ')}</span></p>
-             <p className={css.description}>DESCRIPTION: <span>{videogamedetail.description}</span></p>
-         </div>
+         <img 
+         src={videogamedetail.videogame?.background_image} 
+         alt="Image not found" 
+         className={css.background_image}
+            />
         </div>
-    )
+         <p className={css.p}>Name: <span>{videogamedetail?.videogame?.name}</span> </p> 
+         <p className={css.prelease}>Release Date: <span>{videogamedetail.videogame?.release_date}</span></p> 
+         <p className={css.prating}>Rating: <span>{videogamedetail.videogame?.rating}</span></p>
+         <p className={css.platforms}>Platforms: <span>{videogamedetail.videogame?.platforms}</span></p>
+         <p className={css.genres}>Genres: <span>{videogamedetail.videogame?.Genres.map(genre => genre.name + ' ')}</span></p>
+         <p className={css.description}>DESCRIPTION: <span>{videogamedetail.description}</span></p>
+     </div>
+        </div>
+      }
+    </div>
+  )
 }

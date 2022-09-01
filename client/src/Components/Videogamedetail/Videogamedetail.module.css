@@ -86,3 +86,11 @@
   background-color: #FA4753;
   cursor: pointer;
 }
+
+.loading{
+  position: relative;
+  top: 320px;
+  left: 15px;
+  font-family: 'Staatliches', cursive;
+  font-size: 70px;
+}
