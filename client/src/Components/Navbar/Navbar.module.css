@@ -21,8 +21,8 @@
     top: 30px;
     left: 600px;
     font-family: 'Staatliches', cursive;
-    height: 50px;
-    border-radius: 20px;
+    height: 40px;
+    border-radius: 8px;
     font-size: 18px;
     border: none;
     cursor: pointer;
@@ -38,8 +38,8 @@
   top: 30px;
   left: 800px;
   font-family: 'Staatliches', cursive;
-  height: 50px;
-  border-radius: 20px;
+  height: 40px;
+  border-radius: 8px;
   font-size: 18px;
   width: 150px;
   border: none;
@@ -57,8 +57,8 @@
     top: 30px;
     left: 975px;
     font-family: 'Staatliches', cursive;
-    height: 50px;
-    border-radius: 20px;
+    height: 40px;
+    border-radius: 8px;
     font-size: 18px;
     width: 150px;
     border: none;
@@ -75,8 +75,8 @@
     top: 30px;
     left: 1150px;
     font-family: 'Staatliches', cursive;
-    height: 50px;
-    border-radius: 20px;
+    height: 40px;
+    border-radius: 8px;
     font-size: 18px;
     width: 150px;
     border: none;
