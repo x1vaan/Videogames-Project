@@ -72,8 +72,9 @@
   left: 0px;
   top: 550px;
   font-family: 'Didact Gothic', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   color: #98dad9;
+  text-align: start;
 }
 
 .buttonback {

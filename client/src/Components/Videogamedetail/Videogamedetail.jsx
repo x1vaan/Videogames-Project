@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getvideogamedetail } from '../../Redux/Actions.js'
 import { useParams, useNavigate } from 'react-router-dom'
 import css from './Videogamedetail.module.css'
+import Loading from '../Loading/Loading.jsx'
 
 export default function Videogamedetail () {
    const navigate = useNavigate();
@@ -25,7 +26,7 @@ const handleOnclickback = () => {
   return (
     <div>
       {
-        isEmpty(videogamedetail) ? <div className={css.loading}><p>Loading...</p></div>
+        isEmpty(videogamedetail) ? <div><Loading/></div>
         : <div>
     <button className={css.buttonback} onClick={handleOnclickback}>Back</button>
      <div className={css.container}>

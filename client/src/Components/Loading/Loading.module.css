@@ -1,0 +1,27 @@
+.circle {
+    position: absolute;
+    left: 920px;
+    top: 360px;
+    width: 80px;
+    height: 80px;
+    background-color: #333;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    font-family: 'Staatliches', cursive;
+    font-size: 60px;
+    position: relative;
+    top: 400px;
+    max-width: 200px ;
+    left: 880px;
+}

@@ -26,6 +26,7 @@
     background-color: #98dad9;
     border: 1px solid #D7415D;
     cursor: pointer;
+    transition: 0.3s;
  }
 
  .creategame:hover{

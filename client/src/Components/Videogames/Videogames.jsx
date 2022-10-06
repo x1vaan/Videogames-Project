@@ -5,6 +5,7 @@ import videogamescss from './Videogames.module.css'
 import { getvideogames, resetfilters, resetpagina, resetvideogamedetail } from "../../Redux/Actions.js";
 import Pagination from '../Pagination/Pagination'
 import { useNavigate } from "react-router-dom";
+import Loading from '../Loading/Loading.jsx'
 
 export default function Videogames() {
     const navigate = useNavigate();
@@ -35,6 +36,15 @@ export default function Videogames() {
       dispatch(resetfilters())
       dispatch(getvideogames())
     }
+
+    const isEmpty = (obj) =>{
+      for(var prop in obj) {
+          if(obj.hasOwnProperty(prop))
+              return false;
+      }
+      return true;
+  }
+
     return ( 
         <div>
             <div>
@@ -53,7 +63,7 @@ export default function Videogames() {
            </div>
           <div className={videogamescss.container}>
            {  
-           
+              isEmpty(videogames) ? <Loading/> :
              videogames.length === 0 && filterstate === 'Not found' ? <p className={videogamescss.notfound}>Game not found</p> : 
 
                searchjuego.length === 0 ? games?.map(juego => {
