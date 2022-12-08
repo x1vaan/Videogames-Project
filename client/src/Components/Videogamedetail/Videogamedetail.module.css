@@ -3,8 +3,8 @@
   width: 1400px;
   border: solid 3px;
   position: relative;
-  top: 40px;
-  left: 260px;
+  top: 3vh;
+  margin: auto;
   border-radius: 10px;
   background-color: rgba(23, 24, 28, 0.9);
 }
@@ -15,56 +15,62 @@
   left: 0px;
   height:550px;
   width: 750px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .p{
   position: absolute;
-  right: 270px;
+  right: 15%;
   top: 20px;
   font-family: 'Didact Gothic', sans-serif;
   font-size: 30px;
   color: #98dad9;
-  width: 320px;
+  width: 30%;
+  text-align: start;
 }
 
 .prelease {
     position: absolute;
-    right: 250px;
-    top: 150px;
+    right: 15%;
+    top: 16%;
     font-family: 'Didact Gothic', sans-serif;
     font-size: 30px;
     color: #98dad9;
-    width: 380px;
+    width: 30%;
+    text-align: start;
 }
 
 .prating{
   position: absolute;
-    right: 450px;
+    right: 15%;
     top: 220px;
     font-family: 'Didact Gothic', sans-serif;
     font-size: 30px;
     color: #98dad9;
+    width: 30%;
+    text-align: start;
 }
 
 .platforms{
   position: absolute;
-  right: 230px;
+  right: 15%;
   top: 290px;
   font-family: 'Didact Gothic', sans-serif;
   font-size: 30px;
   color: #98dad9;
-  width: 400px;
+  width: 30%;
+  text-align: start;
 }
 
 .genres{
   position: absolute;
-  right: 230px;
+  right: 15%;
   top: 430px;
   font-family: 'Didact Gothic', sans-serif;
   font-size: 30px;
   color: #98dad9;
-  width: 400px;
+  width: 30%;
+  text-align: start;
 }
 
 .description {
@@ -79,19 +85,11 @@
 
 .buttonback {
   position: absolute;
-  left: 100px;
-  top: 100px;    
+  left: 5%;
+  top: 10%;    
   padding: 20px 50px;
   font-size: 18px;
   font-family: 'Staatliches', cursive;
   background-color: #FA4753;
   cursor: pointer;
-}
-
-.loading{
-  position: relative;
-  top: 320px;
-  left: 15px;
-  font-family: 'Staatliches', cursive;
-  font-size: 70px;
 }
