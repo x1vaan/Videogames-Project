@@ -52,9 +52,9 @@
 
 .developed {
     position: absolute;
-    left: 60px;
+    left: 30px;
     top: 700px;
-    font-family: 'Pathway Gothic One', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 70px;
     color: #87e1c7;
 }
