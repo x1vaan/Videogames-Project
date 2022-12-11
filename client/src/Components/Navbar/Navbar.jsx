@@ -24,9 +24,9 @@ const genres = useSelector(state => state.genres);
         dispatch(filtergames(e.target.value))
     }
     return (
-       <div>
-        <div className={cssNav.navcontainer}>
+        <nav className={cssNav.navcontainer}>
           <h2 className={cssNav.titulo} onClick={onclick} >Videogames App</h2>
+
             <div>
                 <select name="genre" id="genre" onChange={onchangeGenre} className={cssNav.filtergenre}>
                 <option key='firstoptiongenre' value="genres" defaultValue >Genre : </option>
@@ -37,6 +37,7 @@ const genres = useSelector(state => state.genres);
                  }
                 </select>
             </div>
+
             <div>
                  <select name="ordername" id="ordername" className={cssNav.orderbyname} onChange={onchange}>
                     <option value="orderbyname" defaultValue >Order by name : </option>
@@ -44,6 +45,7 @@ const genres = useSelector(state => state.genres);
                     <option value="Z-A">Z-A</option>
                  </select>
             </div>
+
             <div>
                 <select name="orderrating" id="orderrating" className={cssNav.orderbyrating} onChange={onchange}>
                     <option value="orderbyrating" defaultValue>Order by rating : </option>
@@ -51,6 +53,7 @@ const genres = useSelector(state => state.genres);
                     <option value="Worst">Worst</option>
                 </select>
             </div> 
+
             <div>
               <select name="orderbyorigin" id="orderbyorigin" onChange={onchange} className={cssNav.orderbyorigin}>
               <option value="orderbyorigin" defaultValue>Order by origin : </option>
@@ -58,8 +61,7 @@ const genres = useSelector(state => state.genres);
                 <option value="Created">Created</option>
               </select>
             </div>   
-       </div>
-        <Searchbar/>
-        </div>
+            <Searchbar/>
+       </nav>
     )
 }

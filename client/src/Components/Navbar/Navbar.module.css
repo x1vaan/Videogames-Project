@@ -1,88 +1,64 @@
-.titulo{
-    position: relative;
-    font-family: 'Graduate', cursive;
-    font-size: 50px;
-    color: #5B8291;
-    left: 100px;
-    cursor: pointer;
-}
-
 .navcontainer {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     margin-bottom: 150px;
-    margin-top: -20px;
-    border-bottom: solid 1px #17181C;
-    background-color: rgba(47, 67, 77, 0.5) ;
+    background-color: #0d1117;
+    width: 100%;
+    height: 9vh;
+}
+
+.titulo{
+    position: absolute;
+    font-family: 'Graduate', cursive;
+    font-size: 25px;
+    color: #5B8291;
+    cursor: pointer;
+    left: 10px;
+}
+
+select {
+  background-color: transparent;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  top: 24px;
+}
+select:hover {
+    color: #98dad9 ;
+    background-color: rgba(51, 51, 51,0.4);
 }
 
 .filtergenre {
     position: absolute;
-    top: 30px;
-    left: 600px;
-    font-family: 'Staatliches', cursive;
-    height: 40px;
-    border-radius: 8px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.filtergenre:hover{
-    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25);
-    color: #FA4753 ;
+    left: 15%;
+   
 }
 
 .orderbyname {
   position: absolute;
-  top: 30px;
-  left: 800px;
-  font-family: 'Staatliches', cursive;
-  height: 40px;
-  border-radius: 8px;
-  font-size: 18px;
-  width: 150px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  left: 27%;
 } 
-.orderbyname:hover{
-    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25);
-    color: #FA4753 ;
-}
 
 
 .orderbyrating {
     position: absolute;
-    top: 30px;
-    left: 975px;
-    font-family: 'Staatliches', cursive;
-    height: 40px;
-    border-radius: 8px;
-    font-size: 18px;
-    width: 150px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
+    left: 37%;
+    
 }  
-.orderbyrating:hover{
-    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25); 
-    color: #FA4753 ;
-}
 
 .orderbyorigin {
     position: absolute;
-    top: 30px;
-    left: 1150px;
-    font-family: 'Staatliches', cursive;
-    height: 40px;
-    border-radius: 8px;
-    font-size: 18px;
-    width: 150px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}.orderbyorigin:hover{
-    box-shadow: 0 0 25px 12px rgba(250, 71, 83, .25); 
-    color: #FA4753 ;
+    left: 47%;
+}
+
+.searchbar{
+  width: 50%;
+  height: 50%;
+  background-color: #98dad9;
 }
